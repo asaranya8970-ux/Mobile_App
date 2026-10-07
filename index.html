@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StudyMate - Low-Fidelity Mobile App Wireframe Prototype</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Global Header / Device Frame Controls -->
+  <header class="global-bar">
+    <div class="brand">
+      <span class="wireframe-badge">LOW-FI WIREFRAME</span>
+      <h1 class="global-title">StudyMate Mobile Prototype</h1>
+    </div>
+    <div class="viewport-controls">
+      <button id="toggle-frame-btn" class="btn btn-sm btn-outline" title="Toggle Mobile Device Frame View vs Full Screen">
+        📱 Mobile Frame Mode: <span id="frame-state-text">ON</span>
+      </button>
+      <button id="quick-design-btn" class="btn btn-sm btn-secondary">
+        🎨 Design Process
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Container / Phone Mockup Wrapper -->
+  <main class="app-container frame-mode" id="app-container">
+
+    <!-- Simulated Smartphone Device Shell -->
+    <div class="phone-shell">
+      
+      <!-- Top Speaker / Notch -->
+      <div class="phone-notch">
+        <span class="notch-speaker"></span>
+        <span class="notch-camera"></span>
+      </div>
+
+      <!-- Phone Status Bar -->
+      <div class="phone-status-bar">
+        <span class="status-time" id="status-time">09:41</span>
+        <span class="status-icons">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"></path><path d="M1.42 9a16 16 0 0 1 21.16 0"></path><path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path><line x1="12" y1="20" x2="12.01" y2="20"></line></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="16" height="10" rx="2" ry="2"></rect><line x1="22" y1="11" x2="22" y2="13"></line></svg>
+        </span>
+      </div>
+
+      <!-- App Screen Viewport -->
+      <div class="app-viewport" id="app-viewport">
+
+        <!-- ==================== 1. SPLASH SCREEN ==================== -->
+        <section id="screen-splash" class="app-screen active">
+          <div class="splash-content">
+            <div class="wireframe-logo-box">
+              <div class="logo-icon-placeholder">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path><line x1="9" y1="7" x2="15" y2="7"></line><line x1="9" y1="11" x2="13" y2="11"></line></svg>
+              </div>
+              <h1 class="splash-title">StudyMate</h1>
+              <span class="wireframe-subtag">[ WIREFRAME V1.0 ]</span>
+            </div>
+            
+            <p class="splash-tagline">Organize. Learn. Succeed.</p>
+            <p class="splash-desc">Centralized study management for college students. Track courses, notes, tasks & timetable in one place.</p>
+
+            <div class="splash-actions">
+              <button id="btn-get-started" class="btn btn-primary btn-block btn-lg">
+                Get Started &rarr;
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================== 2. LOGIN SCREEN ==================== -->
+        <section id="screen-login" class="app-screen">
+          <div class="screen-header">
+            <button class="back-btn nav-screen-btn" data-target="screen-splash" title="Back to Splash">&larr; Back</button>
+            <h2>Sign In</h2>
+            <span class="screen-badge">Step 2/7</span>
+          </div>
+
+          <div class="screen-body">
+            <div class="login-banner">
+              <div class="avatar-wireframe">👤</div>
+              <h3>Welcome to StudyMate</h3>
+              <p>Enter your student credentials to continue</p>
+            </div>
+
+            <form id="login-form" onsubmit="event.preventDefault();">
+              <div class="form-group">
+                <label for="login-email">College Email Address</label>
+                <div class="input-wrapper">
+                  <span class="input-icon">✉️</span>
+                  <input type="email" id="login-email" class="form-control" value="rahul.student@college.edu" placeholder="name@college.edu" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="login-password">Password</label>
+                <div class="input-wrapper">
+                  <span class="input-icon">🔒</span>
+                  <input type="password" id="login-password" class="form-control" value="password123" placeholder="••••••••" required>
+                </div>
+              </div>
+
+              <div class="form-row-space">
+                <label class="remember-me">
+                  <input type="checkbox" checked> Remember me
+                </label>
+                <a href="#" id="forgot-password-link" class="wireframe-link">Forgot Password?</a>
+              </div>
+
+              <button type="button" id="btn-login-submit" class="btn btn-primary btn-block btn-md">
+                Log In to Workspace &rarr;
+              </button>
+            </form>
+
+            <div class="login-footer">
+              <p>Don't have an account? <a href="#" id="create-account-link" class="wireframe-link">Create Account</a></p>
+              <div class="demo-hint">[ Demo Preset: Click "Log In" with default details ]</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================== 3. HOME SCREEN ==================== -->
+        <section id="screen-home" class="app-screen">
+          <div class="top-nav-bar">
+            <div class="user-greeting">
+              <span class="avatar-sm">👤</span>
+              <div>
+                <span class="welcome-text">Welcome back,</span>
+                <h3 id="home-student-name">Rahul</h3>
+              </div>
+            </div>
+            <button class="icon-btn nav-screen-btn" data-target="screen-profile" title="Profile">⚙️</button>
+          </div>
+
+          <div class="screen-body">
+            <!-- Search Bar -->
+            <div class="search-box">
+              <span class="search-icon">🔍</span>
+              <input type="text" id="global-search-input" placeholder="Search courses, notes, tasks..." class="form-control search-input">
+              <button id="clear-search-btn" class="clear-btn hidden">&times;</button>
+            </div>
+
+            <!-- Search Results Container (Hidden by default) -->
+            <div id="search-results-panel" class="search-results-panel hidden">
+              <div class="panel-header">
+                <span>Search Results</span>
+                <span id="search-count-badge" class="badge">0 items</span>
+              </div>
+              <div id="search-results-list" class="results-list"></div>
+            </div>
+
+            <!-- Quick Access Grid -->
+            <div class="section-title-row">
+              <h4>Quick Access Features</h4>
+              <span class="wireframe-tag">Dashboard</span>
+            </div>
+
+            <div class="quick-access-grid">
+              <div class="wireframe-card quick-card nav-screen-btn" data-target="screen-courses">
+                <div class="card-icon-header">
+                  <span class="card-emoji">📚</span>
+                  <span class="card-count" id="count-courses">4</span>
+                </div>
+                <h5>My Courses</h5>
+                <p>Python, Networks, Java...</p>
+                <span class="card-link">View Courses &rarr;</span>
+              </div>
+
+              <div class="wireframe-card quick-card nav-screen-btn" data-target="screen-notes">
+                <div class="card-icon-header">
+                  <span class="card-emoji">📝</span>
+                  <span class="card-count" id="count-notes">5</span>
+                </div>
+                <h5>Notes</h5>
+                <p>Lecture summaries & topics</p>
+                <span class="card-link">Read Notes &rarr;</span>
+              </div>
+
+              <div class="wireframe-card quick-card nav-screen-btn" data-target="screen-assignments">
+                <div class="card-icon-header">
+                  <span class="card-emoji">📋</span>
+                  <span class="card-count alert-count" id="count-tasks">3 Pending</span>
+                </div>
+                <h5>Assignments</h5>
+                <p>Due dates & status tracker</p>
+                <span class="card-link">Manage Tasks &rarr;</span>
+              </div>
+
+              <div class="wireframe-card quick-card nav-screen-btn" data-target="screen-timetable">
+                <div class="card-icon-header">
+                  <span class="card-emoji">📅</span>
+                  <span class="card-count" id="count-today">Today: 3</span>
+                </div>
+                <h5>Timetable</h5>
+                <p>Mon - Sat schedule</p>
+                <span class="card-link">View Schedule &rarr;</span>
+              </div>
+            </div>
+
+            <!-- Today's Overview Banner -->
+            <div class="wireframe-card info-card">
+              <div class="info-card-header">
+                <span class="info-icon">⚡</span>
+                <h4>Next Upcoming Session</h4>
+              </div>
+              <div class="info-card-body">
+                <strong id="next-class-title">Computer Networks (CS502)</strong>
+                <p id="next-class-time">⏰ 10:45 AM - 12:15 PM | 📍 Room 302</p>
+                <span class="status-badge status-pending">In 45 Minutes</span>
+              </div>
+            </div>
+
+            <!-- Recent Task Snippet -->
+            <div class="wireframe-card info-card">
+              <div class="info-card-header">
+                <span class="info-icon">📌</span>
+                <h4>Priority Assignment</h4>
+              </div>
+              <div class="info-card-body">
+                <strong>Python Lab Assignment 3</strong>
+                <p>Subject: Python Programming | Due: Oct 10, 2026</p>
+                <div class="card-actions-row">
+                  <button class="btn btn-xs btn-outline nav-screen-btn" data-target="screen-assignments">View All Tasks</button>
+                  <button id="home-quick-complete-btn" class="btn btn-xs btn-primary">Mark Completed</button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ==================== 4. COURSES SCREEN ==================== -->
+        <section id="screen-courses" class="app-screen">
+          <div class="screen-header">
+            <h2>My Courses</h2>
+            <span class="screen-badge">4 Enrolled</span>
+          </div>
+
+          <div class="screen-body">
+            <p class="screen-intro">Select a subject to view course syllabus, instructor info, and related study materials.</p>
+
+            <div class="courses-list" id="courses-container">
+              <!-- Courses rendered dynamically via script.js -->
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================== 5. NOTES SCREEN ==================== -->
+        <section id="screen-notes" class="app-screen">
+          <div class="screen-header">
+            <h2>Study Notes</h2>
+            <button id="btn-add-note-modal" class="btn btn-sm btn-primary">+ Add Note</button>
+          </div>
+
+          <div class="screen-body">
+            <!-- Filter Pills -->
+            <div class="filter-bar" id="notes-filter-bar">
+              <button class="filter-pill active" data-filter="all">All</button>
+              <button class="filter-pill" data-filter="Python Programming">Python</button>
+              <button class="filter-pill" data-filter="Computer Networks">Networks</button>
+              <button class="filter-pill" data-filter="Java">Java</button>
+              <button class="filter-pill" data-filter="Computer Architecture">Architecture</button>
+            </div>
+
+            <!-- Notes List -->
+            <div class="notes-list" id="notes-container">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================== 6. ASSIGNMENTS SCREEN ==================== -->
+        <section id="screen-assignments" class="app-screen">
+          <div class="screen-header">
+            <h2>Assignments</h2>
+            <button id="btn-add-task-modal" class="btn btn-sm btn-primary">+ Add Task</button>
+          </div>
+
+          <div class="screen-body">
+            <div class="filter-bar" id="tasks-status-filter">
+              <button class="filter-pill active" data-status="all">All (<span id="task-count-all">4</span>)</button>
+              <button class="filter-pill" data-status="Pending">Pending (<span id="task-count-pending">3</span>)</button>
+              <button class="filter-pill" data-status="Completed">Completed (<span id="task-count-completed">1</span>)</button>
+            </div>
+
+            <div class="tasks-list" id="tasks-container">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================== 7. TIMETABLE SCREEN ==================== -->
+        <section id="screen-timetable" class="app-screen">
+          <div class="screen-header">
+            <h2>Weekly Timetable</h2>
+            <span class="screen-badge">Mon - Sat</span>
+          </div>
+
+          <div class="screen-body">
+            <!-- Day Selector Tabs -->
+            <div class="day-tabs" id="day-tabs">
+              <button class="day-tab" data-day="Mon">Mon</button>
+              <button class="day-tab" data-day="Tue">Tue</button>
+              <button class="day-tab active" data-day="Wed">Wed</button>
+              <button class="day-tab" data-day="Thu">Thu</button>
+              <button class="day-tab" data-day="Fri">Fri</button>
+              <button class="day-tab" data-day="Sat">Sat</button>
+            </div>
+
+            <div class="timetable-card wireframe-card">
+              <div class="timetable-header">
+                <span class="day-title" id="selected-day-title">Wednesday Schedule</span>
+                <span class="wireframe-tag">Semester 5</span>
+              </div>
+
+              <div class="schedule-timeline" id="schedule-container">
+                <!-- Rendered dynamically -->
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================== 8. PROFILE SCREEN ==================== -->
+        <section id="screen-profile" class="app-screen">
+          <div class="screen-header">
+            <h2>Student Profile</h2>
+            <span class="screen-badge">Active</span>
+          </div>
+
+          <div class="screen-body">
+            <div class="profile-card wireframe-card text-center">
+              <div class="profile-avatar-wireframe">👤</div>
+              <h3 id="profile-display-name">Rahul</h3>
+              <p id="profile-display-email" class="text-muted">rahul.student@college.edu</p>
+              <span class="wireframe-badge">Computer Science & Engineering</span>
+            </div>
+
+            <div class="wireframe-card info-list-card">
+              <h4>Academic Information</h4>
+              <div class="info-row">
+                <span class="info-label">Roll Number:</span>
+                <strong id="profile-display-roll">CSE-2024-089</strong>
+              </div>
+              <div class="info-row">
+                <span class="info-label">Department:</span>
+                <strong id="profile-display-dept">Computer Science & Engineering</strong>
+              </div>
+              <div class="info-row">
+                <span class="info-label">Current Year:</span>
+                <strong id="profile-display-year">3rd Year (Semester 5)</strong>
+              </div>
+              <div class="info-row">
+                <span class="info-label">Institution:</span>
+                <span>State Institute of Technology</span>
+              </div>
+            </div>
+
+            <div class="profile-actions">
+              <button id="btn-edit-profile-modal" class="btn btn-primary btn-block">✏️ Edit Profile Details</button>
+              <button class="btn btn-outline btn-block nav-screen-btn" data-target="screen-design">🎨 View Design Process</button>
+              <button id="btn-logout" class="btn btn-danger btn-block">🚪 Log Out</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================== 9. DESIGN PROCESS & USER FLOW ==================== -->
+        <section id="screen-design" class="app-screen">
+          <div class="screen-header">
+            <h2>Design Process & Flow</h2>
+            <span class="screen-badge">UX Design</span>
+          </div>
+
+          <div class="screen-body">
+            <div class="wireframe-card process-intro-card">
+              <h3>📱 StudyMate Design Thinking</h3>
+              <p>This section documents the end-to-end UX wireframing methodology for the StudyMate college management app.</p>
+            </div>
+
+            <!-- 5 Stages of Design Thinking -->
+            <div class="accordion-group">
+              
+              <div class="wireframe-card process-step">
+                <div class="step-badge">1. Empathize</div>
+                <h4>Student Need Finding</h4>
+                <p>College students frequently struggle with managing notes, tracking upcoming assignment due dates, reviewing course syllabi, and checking class timetables across multiple disconnected platforms (emails, messaging groups, physical notebooks, college portals).</p>
+              </div>
+
+              <div class="wireframe-card process-step">
+                <div class="step-badge">2. Define</div>
+                <h4>Problem Statement</h4>
+                <p>Students need a simple, centralized mobile application to organize all core academic activities in one low-friction hub to prevent missed deadlines and improve study focus.</p>
+              </div>
+
+              <div class="wireframe-card process-step">
+                <div class="step-badge">3. Ideate</div>
+                <h4>Key Solutions</h4>
+                <ul>
+                  <li>Single-Page Mobile App layout with quick-access cards for Courses, Notes, Tasks, and Timetable.</li>
+                  <li>Unified search bar for instant lookup across subjects & notes.</li>
+                  <li>Low-cognitive-load wireframe aesthetic for distraction-free navigation.</li>
+                </ul>
+              </div>
+
+              <div class="wireframe-card process-step">
+                <div class="step-badge">4. Prototype</div>
+                <h4>Low-Fidelity Mobile Wireframes</h4>
+                <p>Created interactive monochrome wireframe screens with placeholder icons, crisp structural borders, quick action buttons, and clear typography hierarchy.</p>
+              </div>
+
+              <div class="wireframe-card process-step">
+                <div class="step-badge">5. Test</div>
+                <h4>Usability & Navigation Check</h4>
+                <p>Evaluated whether students can smoothly execute core tasks: navigating between screens, filtering notes by subject, adding assignments, and checking weekly timetables without broken flows.</p>
+              </div>
+
+            </div>
+
+            <!-- User Persona Card -->
+            <div class="wireframe-card persona-card">
+              <div class="card-header-flex">
+                <h4>👤 User Persona</h4>
+                <span class="wireframe-tag">Target User</span>
+              </div>
+              <div class="persona-body">
+                <div class="persona-item"><strong>Name:</strong> Rahul</div>
+                <div class="persona-item"><strong>Age:</strong> 20</div>
+                <div class="persona-item"><strong>Role:</strong> College Student (Computer Science, 3rd Year)</div>
+                <div class="persona-item"><strong>Goal:</strong> Easily manage academic activities in one centralized mobile interface.</div>
+                <div class="persona-item"><strong>Pain Points:</strong> Difficulty tracking assignment deadlines, finding subject notes, and checking room schedules on the go.</div>
+              </div>
+            </div>
+
+            <!-- Interactive User Flow Map -->
+            <div class="wireframe-card flow-card">
+              <h4>🔄 Interactive User Flow Map</h4>
+              <p class="text-muted">Click any step below to simulate the user flow in the wireframe prototype:</p>
+              
+              <div class="flow-steps-grid">
+                <div class="flow-step-btn nav-screen-btn" data-target="screen-splash">
+                  <span class="step-num">Step 1</span>
+                  <strong>Open App</strong>
+                  <small>Splash Screen</small>
+                </div>
+
+                <div class="flow-arrow">&rarr;</div>
+
+                <div class="flow-step-btn nav-screen-btn" data-target="screen-login">
+                  <span class="step-num">Step 2</span>
+                  <strong>Get Started</strong>
+                  <small>Login Screen</small>
+                </div>
+
+                <div class="flow-arrow">&rarr;</div>
+
+                <div class="flow-step-btn nav-screen-btn" data-target="screen-home">
+                  <span class="step-num">Step 3</span>
+                  <strong>Login</strong>
+                  <small>Home Dashboard</small>
+                </div>
+
+                <div class="flow-arrow">&rarr;</div>
+
+                <div class="flow-step-btn nav-screen-btn" data-target="screen-courses">
+                  <span class="step-num">Step 4</span>
+                  <strong>Select Feature</strong>
+                  <small>Courses / Tasks</small>
+                </div>
+
+                <div class="flow-arrow">&rarr;</div>
+
+                <div class="flow-step-btn nav-screen-btn" data-target="screen-notes">
+                  <span class="step-num">Step 5</span>
+                  <strong>View Details</strong>
+                  <small>Note / Assignment</small>
+                </div>
+
+                <div class="flow-arrow">&rarr;</div>
+
+                <div class="flow-step-btn nav-screen-btn" data-target="screen-home">
+                  <span class="step-num">Step 6</span>
+                  <strong>Return Home</strong>
+                  <small>Main Dashboard</small>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+      </div> <!-- /app-viewport -->
+
+      <!-- Bottom Navigation Bar -->
+      <nav class="bottom-nav" id="bottom-nav">
+        <button class="nav-item active nav-screen-btn" data-target="screen-home" id="nav-home">
+          <span class="nav-icon">🏠</span>
+          <span class="nav-label">Home</span>
+        </button>
+        <button class="nav-item nav-screen-btn" data-target="screen-courses" id="nav-courses">
+          <span class="nav-icon">📚</span>
+          <span class="nav-label">Courses</span>
+        </button>
+        <button class="nav-item nav-screen-btn" data-target="screen-assignments" id="nav-tasks">
+          <span class="nav-icon">📋</span>
+          <span class="nav-label">Tasks</span>
+        </button>
+        <button class="nav-item nav-screen-btn" data-target="screen-notes" id="nav-notes">
+          <span class="nav-icon">📝</span>
+          <span class="nav-label">Notes</span>
+        </button>
+        <button class="nav-item nav-screen-btn" data-target="screen-profile" id="nav-profile">
+          <span class="nav-icon">👤</span>
+          <span class="nav-label">Profile</span>
+        </button>
+      </nav>
+
+    </div> <!-- /phone-shell -->
+
+  </main> <!-- /app-container -->
+
+  <!-- ==================== MODALS & DIALOGS ==================== -->
+  
+  <!-- Generic Modal Backdrop -->
+  <div id="modal-backdrop" class="modal-backdrop hidden"></div>
+
+  <!-- Course Detail Modal -->
+  <div id="modal-course-detail" class="wireframe-modal hidden">
+    <div class="modal-header">
+      <h3 id="modal-course-title">Course Details</h3>
+      <button class="close-modal-btn">&times;</button>
+    </div>
+    <div class="modal-body" id="modal-course-body">
+      <!-- Injected by script.js -->
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary close-modal-btn">Close</button>
+    </div>
+  </div>
+
+  <!-- Note Reader Modal -->
+  <div id="modal-read-note" class="wireframe-modal hidden">
+    <div class="modal-header">
+      <h3 id="modal-note-title">View Note</h3>
+      <button class="close-modal-btn">&times;</button>
+    </div>
+    <div class="modal-body" id="modal-note-body">
+      <!-- Injected by script.js -->
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary close-modal-btn">Close Note</button>
+    </div>
+  </div>
+
+  <!-- Add Assignment Modal -->
+  <div id="modal-add-task" class="wireframe-modal hidden">
+    <div class="modal-header">
+      <h3>+ Add New Assignment</h3>
+      <button class="close-modal-btn">&times;</button>
+    </div>
+    <div class="modal-body">
+      <form id="add-task-form">
+        <div class="form-group">
+          <label for="task-title-input">Assignment Title</label>
+          <input type="text" id="task-title-input" class="form-control" placeholder="e.g. Lab Report 4" required>
+        </div>
+        <div class="form-group">
+          <label for="task-subject-select">Subject</label>
+          <select id="task-subject-select" class="form-control" required>
+            <option value="Python Programming">Python Programming</option>
+            <option value="Computer Networks">Computer Networks</option>
+            <option value="Java">Java</option>
+            <option value="Computer Architecture">Computer Architecture</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="task-date-input">Due Date</label>
+          <input type="date" id="task-date-input" class="form-control" value="2026-10-18" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Save Assignment &rarr;</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Add Note Modal -->
+  <div id="modal-add-note" class="wireframe-modal hidden">
+    <div class="modal-header">
+      <h3>+ Create New Study Note</h3>
+      <button class="close-modal-btn">&times;</button>
+    </div>
+    <div class="modal-body">
+      <form id="add-note-form">
+        <div class="form-group">
+          <label for="note-title-input">Note Title</label>
+          <input type="text" id="note-title-input" class="form-control" placeholder="e.g. Binary Search Tree Implementation" required>
+        </div>
+        <div class="form-group">
+          <label for="note-subject-select">Subject</label>
+          <select id="note-subject-select" class="form-control" required>
+            <option value="Python Programming">Python Programming</option>
+            <option value="Computer Networks">Computer Networks</option>
+            <option value="Java">Java</option>
+            <option value="Computer Architecture">Computer Architecture</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="note-content-input">Note Content / Summary</label>
+          <textarea id="note-content-input" class="form-control" rows="4" placeholder="Write key points, formulas, or lecture notes here..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Save Note &rarr;</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Edit Profile Modal -->
+  <div id="modal-edit-profile" class="wireframe-modal hidden">
+    <div class="modal-header">
+      <h3>Edit Student Profile</h3>
+      <button class="close-modal-btn">&times;</button>
+    </div>
+    <div class="modal-body">
+      <form id="edit-profile-form">
+        <div class="form-group">
+          <label for="edit-name-input">Full Name</label>
+          <input type="text" id="edit-name-input" class="form-control" value="Rahul" required>
+        </div>
+        <div class="form-group">
+          <label for="edit-email-input">Email Address</label>
+          <input type="email" id="edit-email-input" class="form-control" value="rahul.student@college.edu" required>
+        </div>
+        <div class="form-group">
+          <label for="edit-dept-input">Department</label>
+          <input type="text" id="edit-dept-input" class="form-control" value="Computer Science & Engineering" required>
+        </div>
+        <div class="form-group">
+          <label for="edit-year-input">Academic Year</label>
+          <input type="text" id="edit-year-input" class="form-control" value="3rd Year (Semester 5)" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Update Profile &rarr;</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
